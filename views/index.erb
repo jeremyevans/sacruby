@@ -1,0 +1,15 @@
+<% @page_title =  'Home' %>
+
+<h2>Upcoming Meetings</h2>
+<ul>
+<% @meetings.each do |m| %>
+  <li>
+  <a href="/meeting/<%= m.id %>"><%= m.date.strftime('%Y-%m-%d') %>: <%=h m.title %></a>
+  (<%= m[:num_attending] %> Attending, You: <%= ATTENDING[m[:attending]] %>)
+  </li>
+<% end %>
+</ul>
+
+<% if admin? %>
+  <h2><a href="/manage">Manage</a></h2>
+<% end %>

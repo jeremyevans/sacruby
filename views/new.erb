@@ -1,0 +1,10 @@
+<% @page_title =  'Register New Member' %>
+
+<% form(@member, :action=>'/register', :method=>'post') do |f| %>
+  <%= f.input(:name) %><br />
+  <%= f.input(:email) %><br />
+  <%= f.input(:password, :value=>'') %><br />
+  <%= f.button(:value=>'Register') %>
+<% end %>
+
+<h2><a href="/login">Already have an account?</a></h2>

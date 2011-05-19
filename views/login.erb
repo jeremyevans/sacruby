@@ -1,0 +1,9 @@
+<% @page_title =  'Login' %>
+
+<% form(:action=>'/login', :method=>'post') do |f| %>
+  <%= f.input(:email, :name=>:email, :label=>'Email') %><br />
+  <%= f.input(:password, :name=>:password, :label=>'Password') %><br />
+  <%= f.button(:value=>'Login') %>
+<% end %>
+
+<h2><a href="/register">Sign Up!</a></h2>

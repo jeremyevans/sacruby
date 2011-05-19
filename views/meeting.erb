@@ -1,0 +1,39 @@
+<% @page_title =  "Meeting on #{@meeting.date.strftime('%Y-%m-%d')}: #{h @meeting.title}" %>
+
+<h2>Agenda<h2>
+
+<p><%=h @meeting.agenda %></p>
+
+<h2>You Are: <%= ATTENDING[@attending]%>
+
+<% if @attending == true %>
+  <% form(:action=>"/meeting/#{@meeting.id}/attend", :method=>'post') do |f| %>
+    <%= f.input(:hidden, :name=>'attend', :value=>'f') %>
+    <%= f.button(:value=>'Changed My Mind, I\'m Out!') %>
+  <% end %>
+<% elsif @attending == false %>
+  <% form(:action=>"/meeting/#{@meeting.id}/attend", :method=>'post') do |f| %>
+    <%= f.input(:hidden, :name=>'attend', :value=>'t') %>
+    <%= f.button(:value=>'Changed My Mind, I\'m In!') %>
+  <% end %>
+<% else %>
+  <% form(:action=>"/meeting/#{@meeting.id}/attend", :method=>'post') do |f| %>
+    <%= f.input(:hidden, :name=>'attend', :value=>'t') %>
+    <%= f.button(:value=>'I\'m In!') %>
+  <% end %>
+  <% form(:action=>"/meeting/#{@meeting.id}/attend", :method=>'post') do |f| %>
+    <%= f.input(:hidden, :name=>'attend', :value=>'f') %>
+    <%= f.button(:value=>'I\'m Out!') %>
+  <% end %>
+<% end %>
+<h2>
+
+<% unless @meeting.attendees.empty? %>
+<h3>Attending</h3>
+<p><%= @meeting.attendees.map(&:name).sort.join(', ') %></p>
+<% end %>
+
+<% unless @meeting.unattendees.empty? %>
+<h3>Not Attending</h3>
+<p><%= @meeting.unattendees.map(&:name).sort.join(', ') %></p>
+<% end %>
