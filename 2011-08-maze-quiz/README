@@ -1,0 +1,6 @@
+This contains a maze solver I wrote during the August 2011 Sacramento
+Ruby Meetup.  I'm particularly proud of it as I finished first and
+had the most accurate program, even finding bugs in the test program.
+I think my solution is guaranteed to find the solution in the least
+possible number of steps, and should have no false positives or false
+negatives.
