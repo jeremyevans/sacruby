@@ -35,7 +35,7 @@ end
 
 class SacRuby < SacRubyBase
   before do
-    redirect('/login', 303) unless logged_in? || PUBLIC_PAGES.include?(request.env['REQUEST_PATH'])
+    redirect('/login', 303) unless logged_in? || PUBLIC_PAGES.include?(request.env['PATH_INFO'])
   end
 
   get('/') do
