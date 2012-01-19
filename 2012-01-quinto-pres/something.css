@@ -1,0 +1,9 @@
+/* customr css and js files included at the top level of your presentation will
+ * will be included in your presentation */
+
+.title-slide h1 {
+  color: blue;
+}
+
+#notes {height: 500px; margin-top: -200px; z-index: 1000; position: relative;}
+#main .content h2 {font-size: 3em; text-align: center; }

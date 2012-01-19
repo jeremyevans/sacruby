@@ -1,0 +1,11 @@
+{
+  "name": "Quinto and Coffeescript/NodeJS",
+  "description": "Presentation discussing the Quinto game and the pros/cons of using Coffeescript vs Javascript and NodeJS/Express versus Ruby/Sinatra|Rails",
+  "sections": [
+    {"section":"intro"},
+    {"section":"quinto"},
+    {"section":"coffeescript"},
+    {"section":"nodejs"},
+    {"section":"conclusion"}
+  ]
+}
