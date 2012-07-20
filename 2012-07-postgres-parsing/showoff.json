@@ -1,0 +1,7 @@
+{
+  "name": "Parsing Advanced PostgreSQL Types",
+  "description": "Describes how parsing of array, hstore, composite, range, and json types is done",
+  "sections": [
+    {"section":"slides"}
+  ]
+}
