@@ -1,0 +1,5 @@
+This contains a bracket generator I wrote during the August 2012
+Sacramento Ruby Meetup.  I didn't get a chance to fully debug the
+web template during the meeting, but after about 10 minutes the
+following morning, I fixed that, so this contains the working
+version.
