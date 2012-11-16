@@ -1,0 +1,6 @@
+This was a robots client I wrote during the November 2011 Sacruby
+meeting.  It exploits a flaw in the server to keep other robots
+idle while it finds and destroys them.
+
+See https://github.com/sacruby/robots for the server code that
+this goes with.
