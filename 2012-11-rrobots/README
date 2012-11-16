@@ -1,0 +1,11 @@
+This is a robot I wrote for the November 2012 Sacruby meeting.
+It attempts to win by cheating, disabling other robots in various
+ways by overwriting their method, and tries to protect against
+similar cheating by other robots.
+
+This is a slightly more polished version, fixing a stack overflow
+that I missed on the hack night if robots loaded after robo
+include another module after including Robot.
+
+This code requires the rrobots library to run, see
+https://github.com/ralreegorganon/rrobots
