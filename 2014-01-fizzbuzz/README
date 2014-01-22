@@ -1,0 +1,11 @@
+This was the code I wrote for the SacRuby Meetup in January 2014.
+There were two exercises that meetup.  One was to write FizzBuzz
+in a language you hadn't written a program in, the other was to
+implement SimFrost (Ruby Quiz #117).
+
+While I've used awk before for simple text manipulation, I've never
+written a program in it, so I decided to use awk.  That was really
+easy as awk is similar to C.
+
+SimFrost took significantly more time, but I still finished both
+in about an hour.
