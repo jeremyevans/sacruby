@@ -1,50 +1,86 @@
 def update_quality(items)
   items.each do |item|
-    if item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert'
-      if item.quality > 0
-        if item.name != 'Sulfuras, Hand of Ragnaros'
-          item.quality -= 1
-        end
-      end
+    ItemWrapper.update(item)
+  end
+end
+
+class ItemWrapper
+  def self.update(item)
+    class_for(item).new(item).update
+  end
+
+  def self.class_for(item)
+    case item.name
+    when 'Sulfuras, Hand of Ragnaros'
+      Sulfuras
+    when "Aged Brie"
+      Brie
+    when 'Backstage passes to a TAFKAL80ETC concert'
+      BackstagePass
+    when "Conjured Mana Cake"
+      ConjuredItem
     else
-      if item.quality < 50
-        item.quality += 1
-        if item.name == 'Backstage passes to a TAFKAL80ETC concert'
-          if item.sell_in < 11
-            if item.quality < 50
-              item.quality += 1
-            end
-          end
-          if item.sell_in < 6
-            if item.quality < 50
-              item.quality += 1
-            end
-          end
-        end
-      end
+      self
     end
-    if item.name != 'Sulfuras, Hand of Ragnaros'
-      item.sell_in -= 1
-    end
+  end
+
+  def initialize(item)
+    @item = item
+  end
+
+  attr_reader :item
+
+  def update_sell_in
+    item.sell_in -= 1
+  end
+
+  def update_quality
+    item.quality -= item.sell_in > 0 ? 1 : 2
+  end
+
+  def check_quality
+    item.quality = 0 if item.quality < 0
+    item.quality = 50 if item.quality > 50
+  end
+
+  def update
+    update_sell_in
+    update_quality
+    check_quality
+  end
+end
+
+class Sulfuras < ItemWrapper
+  def update
+  end
+end
+
+class Brie < ItemWrapper
+  def update_quality
+    item.quality += item.sell_in > 0 ? 1 : 2
+  end
+end
+
+class BackstagePass < ItemWrapper
+  def update_quality
     if item.sell_in < 0
-      if item.name != "Aged Brie"
-        if item.name != 'Backstage passes to a TAFKAL80ETC concert'
-          if item.quality > 0
-            if item.name != 'Sulfuras, Hand of Ragnaros'
-              item.quality -= 1
-            end
-          end
-        else
-          item.quality = item.quality - item.quality
-        end
-      else
-        if item.quality < 50
-          item.quality += 1
-        end
-      end
+      item.quality = 0
+    elsif item.sell_in < 5
+      item.quality += 3
+    elsif item.sell_in < 10
+      item.quality += 2
+    else
+      item.quality += 1
     end
   end
 end
+
+class ConjuredItem < ItemWrapper
+  def update_quality
+    item.quality -= item.sell_in > 0 ? 2 : 4
+  end
+end
+
 
 # DO NOT CHANGE THINGS BELOW -----------------------------------------
 
