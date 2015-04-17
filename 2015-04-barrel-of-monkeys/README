@@ -1,0 +1,6 @@
+The April 2015 Ruby Meetup was doing ruby quiz #30: http://rubyquiz.com/quiz30.html
+
+This was coded in about 2 hours and handles all cases for parsing the playlist.
+The algorithm I used finds the shortest path if the path if finds if less than
+5 songs, but if the path it finds is 5 or more songs, it may not be the shortest
+path.
