@@ -1,2 +1,2 @@
-p Integer.equal?(Integer)
-p Integer.equal?(Integer)
+p Fixnum.equal?(Integer)
+p Bignum.equal?(Integer)

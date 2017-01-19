@@ -2,11 +2,9 @@
 o = Object.new
 def o.foo; 1 end
 o.freeze
-
 begin
 x = o.clone
 def x.bar; foo + 2 end
-p x.bar
 rescue
   p $!
 end
@@ -19,4 +17,3 @@ p x.bar
 rescue
   p $!
 end
-
