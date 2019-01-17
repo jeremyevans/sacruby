@@ -6,7 +6,7 @@ class A
   def self.const_missing(c)
     p c
     if c == :B
-      warn "A::B is now private"
+      warn "A::B is now private", uplevel: 1
       B
     else
       super
